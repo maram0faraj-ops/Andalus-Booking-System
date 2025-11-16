@@ -4,35 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>لوحة تحكم المدير - الحجوزات</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>لوحة تحكم المدير 🔒 - كافة الحجوزات</h1>
-        <p>عرض شامل لكافة الحجوزات التي تمت عبر النظام.</p>
-        <button id="refresh-button">تحديث البيانات</button>
-        <div id="loading-message">... جاري تحميل بيانات الحجوزات ...</div>
+    <div class="container my-5">
+        <div class="text-center mb-4">
+            <img src="andalus_logo.png" alt="شعار مدارس الأندلس الأهلية" class="img-fluid logo-img">
+        </div>
+        <h1 class="text-center text-primary mb-4">لوحة تحكم المدير 🔒 - كافة الحجوزات</h1>
+        <p class="text-center text-muted mb-4">عرض شامل لكافة الحجوزات التي تمت عبر النظام.</p>
+        <button id="refresh-button" class="btn btn-success mb-3">تحديث البيانات</button>
+        <div id="loading-message" class="alert alert-info text-center" style="display:none;">... جاري تحميل بيانات الحجوزات ...</div>
         
-        <table id="bookings-table">
-            <thead>
-                <tr>
-                    <th>رقم الحجز</th>
-                    <th>القاعة</th>
-                    <th>التاريخ</th>
-                    <th>من</th>
-                    <th>إلى</th>
-                    <th>المرحلة</th>
-                    <th>اسم المدخل</th>
-                    <th>البريد</th>
-                    <th>الغرض</th>
-                    <th>تاريخ الإنشاء</th>
-                </tr>
-            </thead>
-            <tbody>
-                </tbody>
-        </table>
+        <div class="table-responsive">
+            <table id="bookings-table" class="table table-striped table-bordered table-hover">
+                <thead class="table-primary">
+                    <tr>
+                        <th>رقم الحجز</th>
+                        <th>القاعة</th>
+                        <th>التاريخ</th>
+                        <th>من</th>
+                        <th>إلى</th>
+                        <th>المرحلة</th>
+                        <th>اسم المدخل</th>
+                        <th>البريد</th>
+                        <th>الغرض</th>
+                        <th>تاريخ الإنشاء</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="admin.js"></script>
 </body>
 </html>

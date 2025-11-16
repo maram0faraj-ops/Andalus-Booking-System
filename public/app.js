@@ -4,10 +4,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('booking-form');
     const messageArea = document.getElementById('message-area');
     
-    const displayMessage = (message, isError = false) => {
+    // دالة لعرض الرسائل باستخدام فئات Bootstrap Alerts
+    const displayMessage = (message, isError = false, isInfo = false) => {
         messageArea.textContent = message;
-        messageArea.style.backgroundColor = isError ? '#fdd' : '#dfd';
-        messageArea.style.color = isError ? 'red' : 'green';
+        messageArea.classList.remove('alert-success', 'alert-danger', 'alert-info');
+        
+        if (isError) {
+            messageArea.classList.add('alert-danger');
+        } else if (isInfo) {
+            messageArea.classList.add('alert-info');
+        } else {
+            messageArea.classList.add('alert-success');
+        }
+        
         messageArea.style.display = 'block';
     };
 
@@ -17,14 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
 
+        // التحقق الأساسي من الأوقات
         if (data.startTime >= data.endTime) {
             return displayMessage('خطأ: وقت البدء يجب أن يكون قبل وقت الانتهاء.', true);
         }
 
-        // إخفاء الرسائل القديمة أثناء الإرسال
-        displayMessage('... جاري إرسال طلب الحجز ...', false);
-        messageArea.style.backgroundColor = '#ffc';
-        messageArea.style.color = '#333';
+        // عرض رسالة تحميل/معلومات أثناء الإرسال
+        displayMessage('... جاري إرسال طلب الحجز ...', false, true);
         
         try {
             const response = await fetch('/api/bookings', {
@@ -36,10 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const result = await response.json();
 
             if (response.ok) {
+                // نجاح الحجز
                 displayMessage(`✅ ${result.message} رقم حجزك هو: ${result.reservationNumber}. سيصلك بريد تأكيد.`);
                 form.reset(); 
             } else {
-                // رسالة الرفض في حالة التداخل
+                // فشل الحجز (بسبب تداخل أو خطأ في الخادم)
                 displayMessage(`❌ خطأ في الحجز: ${result.details || result.message}`, true);
             }
         } catch (error) {
