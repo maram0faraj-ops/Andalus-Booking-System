@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حجز قاعات مدارس الأندلس</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🏛️ نظام حجز القاعات بمدارس الأندلس - الزهراء بنات</h1>
+        <form id="booking-form">
+            <h2>بيانات الحجز</h2>
+
+            <label for="stageName">اختر القاعة:</label>
+            <select id="stageName" name="stageName" required>
+                <option value="">-- اختر قاعة --</option>
+                <option value="المسرح">المسرح</option>
+                <option value="مصادر التعلم">مصادر التعلم</option>
+                <option value="قاعة بلنسية">قاعة بلنسية</option>
+                <option value="الصالة الرياضية بنين">الصالة الرياضية بنين</option>
+                <option value="الصالة الرياضية بنات">الصالة الرياضية بنات</option>
+            </select>
+
+            <label for="reservationDate">التاريخ:</label>
+            <input type="date" id="reservationDate" name="reservationDate" required>
+
+            <label for="startTime">وقت البدء (HH:MM):</label>
+            <input type="time" id="startTime" name="startTime" required>
+
+            <label for="endTime">وقت الانتهاء (HH:MM):</label>
+            <input type="time" id="endTime" name="endTime" required>
+            
+            <label for="stagePhase">المرحلة الطالبة للحجز:</label>
+            <select id="stagePhase" name="stagePhase" required>
+                <option value="">-- اختر المرحلة --</option>
+                <option value="رياض أطفال">رياض أطفال</option>
+                <option value="طفولة مبكرة">طفولة مبكرة</option>
+                <option value="ابتدائي عليا">ابتدائي عليا</option>
+                <option value="المتوسط">المتوسط</option>
+                <option value="الثانوي">الثانوي</option>
+                <option value="الإدارة العامة">الإدارة العامة</option>
+            </select>
+
+            <label for="reserverName">اسم المدخل:</label>
+            <input type="text" id="reserverName" name="reserverName" required>
+
+            <label for="reserverEmail">البريد الإلكتروني:</label>
+            <input type="email" id="reserverEmail" name="reserverEmail" required placeholder="لتلقي بريد التأكيد">
+
+            <label for="details">الغرض من الحجز/التفاصيل:</label>
+            <textarea id="details" name="details"></textarea>
+
+            <button type="submit">إرسال طلب الحجز</button>
+        </form>
+
+        <div id="message-area" class="message-area"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
