@@ -20,7 +20,8 @@ app.use(cors()); // لتمكين CORS
 
 // ربط المسارات
 app.use('/api/bookings', require('./routes/bookingRoutes'));
-
+// server.js (تأكد من هذا السطر)
+app.use('/api/users', require('./routes/userRoutes'));
 // تقديم الملفات الثابتة (الواجهة الأمامية)
 app.use(express.static(path.join(__dirname, 'public')));
 
