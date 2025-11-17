@@ -8,38 +8,42 @@ body {
     margin: 0;
     padding: 0;
     
-    /* تطبيق الخلفية بناءً على الصورة المرفقة */
-    background-image: url('image_ff0123.jpg'); /* اسم الملف الأصلي */
+    /* تحديث مسار الخلفية وتنسيقاتها */
+    background-image: url('background_building.jpg'); /* تأكد من صحة هذا المسار والاسم تمامًا */
     background-size: cover; 
-    background-position: center; 
-    background-attachment: fixed; 
+    background-position: center center; /* توسيط دقيق */
+    background-repeat: no-repeat; /* عدم تكرار الصورة */
+    background-attachment: fixed; /* تثبيت الخلفية عند التمرير */
     min-height: 100vh; 
     
     /* استخدام Flexbox لتوسيط محتوى الصفحة داخل viewport */
     display: flex; 
-    align-items: center; 
-    justify-content: center; 
+    align-items: center; /* توسيط المحتوى عمودياً */
+    justify-content: center; /* توسيط المحتوى أفقياً */
+    /* إضافة تدرج شفاف فوق الخلفية لتحسين قراءة النص */
+    background-blend-mode: overlay; /* لتعديل كيفية مزج الخلفية مع الألوان الأخرى */
+    background-color: rgba(0, 0, 0, 0.3); /* طبقة شفافة لـ 30% أسود فوق الخلفية */
 }
 
 /* التنسيق الخاص بالعنوان المنفصل */
 .title-container {
-    background-color: rgba(255, 255, 255, 0.95); /* خلفية بيضاء واضحة للقراءة */
+    background-color: rgba(255, 255, 255, 0.95); /* خلفية بيضاء شبه شفافة */
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    /* توسيط العنصر داخل الـ col-lg-8 */
     margin-left: auto;
     margin-right: auto;
+    padding: 1rem 1.5rem !important; /* تقليل المسافات الداخلية قليلاً */
 }
 
 /* العنوان نفسه باللون الأسود */
 .title-container h1 {
     color: black !important;
-    font-size: 2rem; /* حجم الخط يمكن تعديله */
+    font-size: 2.2rem; /* زيادة حجم الخط قليلاً */
 }
 
 /* تنسيق الشعار */
 .logo-img {
-    max-width: 250px; 
+    max-width: 300px; /* زيادة حجم الشعار قليلاً */
     height: auto;
     margin: 0 auto 20px auto; 
     display: block; 
@@ -47,9 +51,9 @@ body {
 
 /* تنسيق الفورم نفسه (البطاقة) */
 .form-card {
-    background-color: rgba(255, 255, 255, 0.98); /* شفافية قليلة جداً لتوضيح الخلفية */
+    background-color: rgba(255, 255, 255, 0.98); 
     border: none;
-    padding: 2.5rem !important; 
+    padding: 2rem !important; /* تقليل المسافات الداخلية قليلاً */
     border-radius: 12px;
 }
 
@@ -58,7 +62,7 @@ body {
     color: #343a40 !important;
 }
 
-/* ضمان ظهور الحاوية بشكل صحيح */
+/* التأكد من أن الحاوية العامة لا تكون ضيقة جداً */
 .container {
-    max-width: 1200px;
+    max-width: 900px; /* عرض أقصى للحاوية */
 }
