@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل مستخدم جديد</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-body">
+    <div class="container my-5">
+        <div class="text-center mb-4">
+            <img src="andalus_logo.png" alt="شعار مدارس الأندلس الأهلية" class="img-fluid logo-img">
+        </div>
+        
+        <div class="card p-4 shadow-lg col-lg-6 mx-auto form-card">
+            <h1 class="text-center text-primary mb-4">تسجيل مستخدم جديد</h1>
+            
+            <form id="register-form">
+                <div class="mb-3">
+                    <label for="name" class="form-label">الاسم الكامل:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">البريد الإلكتروني:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="password" class="form-label">كلمة المرور:</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="phase" class="form-label">المرحلة/القسم التابع له:</label>
+                    <select id="phase" name="phase" class="form-select" required>
+                        <option value="">-- اختر المرحلة --</option>
+                        <option value="رياض أطفال">رياض أطفال</option>
+                        <option value="طفولة مبكرة">طفولة مبكرة</option>
+                        <option value="ابتدائي عليا">ابتدائي عليا</option>
+                        <option value="المتوسط">المتوسط</option>
+                        <option value="الثانوي">الثانوي</option>
+                        <option value="الإدارة العامة">الإدارة العامة</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="role" class="form-label">الدور (لأغراض الاختبار):</label>
+                    <select id="role" name="role" class="form-select" required>
+                        <option value="Teacher">معلم/مستخدم عادي</option>
+                        <option value="Admin">مدير النظام</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary w-100 mt-3">تسجيل</button>
+            </form>
+            
+            <p class="text-center mt-3">
+                <a href="login.html">لديك حساب بالفعل؟ تسجيل الدخول</a>
+            </p>
+        </div>
+
+        <div id="message-area" class="alert mt-4 col-lg-6 mx-auto" style="display:none;"></div>
+    </div>
+
+    <script src="register.js"></script>
+</body>
+</html>

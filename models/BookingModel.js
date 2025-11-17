@@ -1,49 +1,70 @@
-// models/BookingModel.js
+// models/BookingModel.js (التحديث الكامل لنظام المستخدمين المتعددين)
 
 const mongoose = require('mongoose');
 
 const bookingSchema = mongoose.Schema({
-    stageName: { 
+    // حقل فريد لكل حجز
+    reservationNumber: {
         type: String,
-        required: [true, 'Stage name is required'],
-        // قائمة القاعات المحدثة
-        enum: ['المسرح', 'مصادر التعلم', 'قاعة بلنسية', 'الصالة الرياضية بنين', 'الصالة الرياضية بنات']
+        required: true,
+        unique: true,
     },
-    stagePhase: { 
+    // اسم القاعة المحجوزة
+    stageName: {
         type: String,
-        required: [true, 'Phase is required'],
-        // قائمة المراحل المحدثة (التي ستظهر في القائمة المنسدلة)
-        enum: ['رياض أطفال', 'طفولة مبكرة', 'ابتدائي عليا', 'المتوسط', 'الثانوي', 'الإدارة العامة']
+        required: true,
     },
-    reservationDate: { 
+    // التاريخ والوقت
+    reservationDate: {
         type: Date,
-        required: [true, 'Reservation date is required'],
+        required: true,
     },
-    startTime: { 
+    startTime: {
         type: String,
-        required: [true, 'Start time is required'],
+        required: true,
     },
-    endTime: { 
+    endTime: {
         type: String,
-        required: [true, 'End time is required'],
+        required: true,
     },
-    reserverName: {
+    // تفاصيل الحجز
+    stagePhase: {
         type: String,
-        required: [true, 'Reserver name is required'],
-    },
-    reserverEmail: {
-        type: String,
-        required: [true, 'Reserver email is required'],
+        required: true,
     },
     details: {
         type: String,
     },
-    reservationNumber: {
+    
+    // ********** حقول ربط المستخدم **********
+    
+    // يمثل المستخدم الذي قام بإنشاء هذا الحجز (المُرسِل)
+    user: {
+        type: mongoose.Schema.Types.ObjectId, // نوع يربط بين نموذجين
+        required: true,
+        ref: 'User', // يشير إلى اسم النموذج الذي أنشأناه في UserModel.js
+    },
+    
+    // نحتفظ بهذه الحقول لتسهيل الإشعارات، لكن يمكن جلبها من نموذج المستخدم
+    // تم الاحتفاظ بها لتتوافق مع نظام الإشعارات الحالي.
+    reserverName: {
         type: String,
-        unique: true
-    }
+        required: true,
+    },
+    reserverEmail: {
+        type: String,
+        required: true,
+    },
+    
+    // **************************************
+    
+    // حالة الموافقة
+    isApproved: {
+        type: Boolean,
+        default: false,
+    },
 }, {
-    timestamps: true, 
+    timestamps: true, // لإضافة حقلي createdAt و updatedAt
 });
 
 const Booking = mongoose.model('Booking', bookingSchema);

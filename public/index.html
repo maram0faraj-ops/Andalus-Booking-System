@@ -14,6 +14,15 @@
             <img src="andalus_logo.png" alt="شعار مدارس الأندلس الأهلية" class="img-fluid logo-img">
         </div>
         
+        <div class="d-flex justify-content-between align-items-center mb-3 col-md-8 mx-auto p-2 bg-light rounded shadow-sm">
+            <div id="user-info">
+                <span class="text-muted">مرحباً، </span><strong class="text-primary" id="logged-in-user">الزائر</strong>
+            </div>
+            <div>
+                <button id="logout-btn" class="btn btn-sm btn-outline-danger me-2">تسجيل الخروج</button>
+                <a id="admin-link" href="admin.html" class="btn btn-sm btn-outline-info" style="display:none;">لوحة التحكم</a>
+            </div>
+        </div>
         <div class="text-center mb-4 col-md-8 mx-auto p-3 title-container"> 
             <h1 class="text-black fw-bold mb-0">نظام حجز المسرح و القاعات</h1>
         </div>
@@ -50,29 +59,6 @@
                     </div>
                 </div>
                 
-                <div class="mb-3">
-                    <label for="stagePhase" class="form-label">المرحلة الطالبة للحجز:</label>
-                    <select id="stagePhase" name="stagePhase" class="form-select" required>
-                        <option value="">-- اختر المرحلة --</option>
-                        <option value="رياض أطفال">رياض أطفال</option>
-                        <option value="طفولة مبكرة">طفولة مبكرة</option>
-                        <option value="ابتدائي عليا">ابتدائي عليا</option>
-                        <option value="المتوسط">المتوسط</option>
-                        <option value="الثانوي">الثانوي</option>
-                        <option value="الإدارة العامة">الإدارة العامة</option>
-                    </select>
-                </div>
-
-                <div class="mb-3">
-                    <label for="reserverName" class="form-label">اسم المدخل:</label>
-                    <input type="text" id="reserverName" name="reserverName" class="form-control" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="reserverEmail" class="form-label">البريد الإلكتروني:</label>
-                    <input type="email" id="reserverEmail" name="reserverEmail" class="form-control" required placeholder="لتلقي بريد التأكيد">
-                </div>
-
                 <div class="mb-3">
                     <label for="details" class="form-label">الغرض من الحجز/التفاصيل:</label>
                     <textarea id="details" name="details" class="form-control" rows="3"></textarea>
